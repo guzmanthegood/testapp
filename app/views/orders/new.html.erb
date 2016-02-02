@@ -1,0 +1,25 @@
+<h1>New order</h1>
+<% if notice.present? %>
+  <p style="color:green"><%= notice %></p>
+<% end %>
+<% if alert.present? %>
+  <p style="color:red"><%= alert %></p>
+<% end %>
+
+<%= form_tag orders_path, method: :post do %>
+  <div class="field">
+    <%= label_tag 'Language' %><br>
+    <%= select_tag :language, options_for_select([['Castellano', '001'],['Inglés', '002'],['Alemán', '005']]), style: "width: 156px" %>
+  </div>
+  <div class="field">
+    <%= label_tag 'Order' %><br>
+    <%= text_field_tag :order, '0002', {style: "width: 150px"} %>
+  </div>
+  <div class="field">
+    <%= label_tag 'Amount' %><br>
+    <%= text_field_tag :amount, '35.50', {style: "width: 150px"} %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Send' %>
+  </div>
+<% end %>
